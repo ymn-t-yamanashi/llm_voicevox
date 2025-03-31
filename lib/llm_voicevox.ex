@@ -7,8 +7,21 @@ defmodule LlmVoicevox do
 
   """
   def main do
-    Speak.speak("こんにちは、ずんだもんです")
-    :world
-    |> IO.puts()
+    "サボってゲーセンにいくわ"
+    |> llm_pair()
+
+  end
+
+  def llm_pair(msg) do
+    llm(msg, "1")
+    |> llm("2")
+    |> llm_pair()
+  end
+
+  def llm(msg, id) do
+    ret = Dify.llm(msg, id)
+    |> IO.inspect()
+    |> Speak.speak(id)
+    ret
   end
 end
