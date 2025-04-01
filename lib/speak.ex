@@ -18,7 +18,6 @@ defmodule Speak do
     File.rm("hoge.wav")
     File.write("hoge.wav", data)
     System.cmd("aplay", ["hoge.wav"])
-
-    :world
+    text
   end
 end

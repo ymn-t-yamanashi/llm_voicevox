@@ -8,6 +8,7 @@ defmodule LlmVoicevox do
   """
   def main do
     "サボってゲーセンにいくわ"
+    #|> Speak.speak("2")
     |> llm_pair()
 
   end
@@ -19,9 +20,8 @@ defmodule LlmVoicevox do
   end
 
   def llm(msg, id) do
-    ret = Dify.llm(msg, id)
+    Dify.llm(msg, id)
     |> IO.inspect()
     |> Speak.speak(id)
-    ret
   end
 end
