@@ -22,8 +22,11 @@ defmodule Dify do
     "http://localhost:8001/v1/workflows/run"
     |> Req.post!(headers: headers, body: json, connect_options: [timeout: 1_000_000])
     |> Map.get(:body)
-    |> Map.get("data")
+    |> Map.get("data", %{outputs: %{text: "ほげ"}})
     |> Map.get("outputs")
     |> Map.get("text")
+    |> String.split("。")
+    |> List.first()
+
   end
 end

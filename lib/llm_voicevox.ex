@@ -7,7 +7,7 @@ defmodule LlmVoicevox do
 
   """
   def main do
-    "サボってゲーセンにいくわ"
+    "AI使って宿題楽する"
     #|> Speak.speak("2")
     |> llm_pair()
 
